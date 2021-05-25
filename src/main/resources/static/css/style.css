@@ -45,9 +45,9 @@
     right: 33%;
 }
 
-h1 {
-    margin-top: 7px;
-    font-size: small;
+h1.greeting{
+    margin-top: 8px;
+    font-size: medium;
     color: white;
     font-family: -apple-system, monospace;
     position: center;

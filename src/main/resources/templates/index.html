@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-    <script>
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+    <link rel="stylesheet" href="./css/style.css">
+       <script>
         function insert(num) {
             document.form.textview.value = document.form.textview.value + num;
         }
@@ -35,136 +30,7 @@
     </script>
     <meta charset="UTF-8">
     <title>Test Calculator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .button {
-            width: 100px;
-            height: 50px;
-            font-size: 25px;
-            margin: 2px;
-            cursor: pointer;
-            color: #24bbff;
-            border: none;
-            padding: 15px 25px;
-            text-align: center;
-            outline: none;
-            text-decoration: cornflowerblue;
-            display: block;
-            border-radius: 15px;
-            box-shadow: 0 3px #999;
 
-        }
-
-        .button:hover {
-            background-color: #0972c6
-        }
-
-        .button:active {
-            background-color: #0972c6;
-            box-shadow: 0 3px #666;
-            transform: translateY(2px);
-        }
-
-        .textview {
-            width: 420px;
-            height: 30px;
-            margin: 4px;
-            font-size: 30px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 3px #999;
-        }
-
-        .main {
-            margin: 0;
-            position: absolute;
-            top: 30%;
-            -ms-transform: translateY(-30%) translateY(-30%);
-            transform: translateY(-30%) translateX(-30%);
-            right: 33%;
-        }
-
-        h1 {
-            margin-top: 7px;
-            font-size: small;
-            color: white;
-            font-family: -apple-system, monospace;
-            position: center;
-            text-align: center;
-        }
-
-
-        /*starting the hover menu*/
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #F18F0C;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            color: white;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        .openbtn {
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #E85C99;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-        }
-
-        .openbtn:hover {
-            background-color: #C71C0B;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-        }
-
-        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-        @media screen and (max-height: 450px) {
-            .sidebar {
-                padding-top: 15px;
-            }
-
-            .sidebar a {
-                font-size: 18px;
-            }
-        }
-    </style>
 </head>
 <body style="background-color: #24bbff">
 <div class="main">
@@ -243,7 +109,7 @@
         <tr>
     </table>
 
-    <h1>"Calculator" by Damianos Pappas</h1>
+    <h1 class="greeting">"Calculator" by Damianos Pappas</h1>
 
 </div>
 <!--Here starts the menu html-->
@@ -251,8 +117,8 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="#">History</a>
     <a href="#">UserInfo</a>
-    <a href="main.html">Calculator</a>
-    <a href="#">Logout</a>
+    <a href="/">Calculator</a>
+    <a href="/logout">Logout</a>
 
 </div>
 

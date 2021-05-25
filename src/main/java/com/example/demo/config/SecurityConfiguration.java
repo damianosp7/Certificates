@@ -34,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
 
@@ -44,7 +44,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/registration**",
                 "/js/**",
                 "/css/**",
-                "/img/**").permitAll()
+                "/img/**",
+                "/template/**",
+                "/static/css/style.css").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
