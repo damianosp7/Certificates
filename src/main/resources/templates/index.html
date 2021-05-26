@@ -7,20 +7,24 @@
        <script>
         function insert(num) {
             document.form.textview.value = document.form.textview.value + num;
+            document.form.history.value =" "+eval(document.form.textview.value)
         }
 
         function equal(symbol) {
             let exp = document.form.textview.value
             if (exp !== " ") {
+                document.form.history.value = document.form.textview.value +" "+"="+" "+eval(document.form.textview.value)
                 document.form.textview.value = " " + eval(document.form.textview.value)
             }
             if (symbol === '%') {
+                document.form.history.value = document.form.textview.value +"%"+" "+"="+" "+eval(document.form.textview.value + '*' + 0.01)
                 document.form.textview.value = " " + eval(document.form.textview.value + '*' + 0.01)
             }
         }
 
         function erase() {
             document.form.textview.value = " "
+            document.form.history.value  = " "
         }
 
         function del() {
@@ -29,13 +33,14 @@
         }
     </script>
     <meta charset="UTF-8">
-    <title>Test Calculator</title>
+    <title>"Calculator"</title>
 
 </head>
 <body style="background-color: #24bbff">
 <div class="main">
     <form name="form">
         <label>
+            <input style="background-color: white; color: #999999" class="textview" name="history" value="" readonly><br/>
             <input class="textview" name="textview" value=" ">
         </label>
     </form>
@@ -115,8 +120,8 @@
 <!--Here starts the menu html-->
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#">History</a>
-    <a href="#">UserInfo</a>
+    <a href="/history">History</a>
+    <a href="/userinfo">UserInfo</a>
     <a href="/">Calculator</a>
     <a href="/logout">Logout</a>
 
