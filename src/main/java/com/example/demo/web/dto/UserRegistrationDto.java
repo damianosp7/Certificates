@@ -17,6 +17,7 @@ public class UserRegistrationDto {
         this.password = password;
     }
 
+
     public String getFirstName() {
         return firstName;
     }
