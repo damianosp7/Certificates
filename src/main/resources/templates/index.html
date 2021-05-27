@@ -4,126 +4,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
     <link rel="stylesheet" href="./css/style.css">
-       <script>
-        function insert(num) {
-            document.form.textview.value = document.form.textview.value + num;
-            document.form.history.value =" "+eval(document.form.textview.value)
-        }
 
-        function equal(symbol) {
-            let exp = document.form.textview.value
-            if (exp !== " ") {
-                document.form.history.value = document.form.textview.value +" "+"="+" "+eval(document.form.textview.value)
-                document.form.textview.value = " " + eval(document.form.textview.value)
-            }
-            if (symbol === '%') {
-                document.form.history.value = document.form.textview.value +"%"+" "+"="+" "+eval(document.form.textview.value + '*' + 0.01)
-                document.form.textview.value = " " + eval(document.form.textview.value + '*' + 0.01)
-            }
-        }
-
-        function erase() {
-            document.form.textview.value = " "
-            document.form.history.value  = " "
-        }
-
-        function del() {
-            let exp = document.form.textview.value
-            document.form.textview.value = exp.substring(0, exp.length - 1);
-            document.form.history.value =" "+eval(document.form.textview.value)
-        }
-    </script>
     <meta charset="UTF-8">
-    <title>"Calculator"</title>
+    <title>Certificate Authentication</title>
 
 </head>
 <body style="background-color: #24bbff">
 <div class="main">
-    <form name="form">
-        <label>
-            <input style="background-color: white; color: #999999" class="textview" name="history" value="" readonly><br/>
-            <input class="textview" name="textview" value=" ">
-        </label>
-    </form>
-    <table>
-        <tr>
-            <td>
-                <button class="button" value="c" onclick="erase()">C</button>
-            </td>
-            <td>
-                <button class="button" value="/" onclick="insert('/')">/</button>
-            </td>
-            <td>
-                <button class="button" value="*" onclick="insert('*')">*</button>
-            </td>
-            <td>
-                <button class="button" value="del" onclick="del()">del</button>
-            </td>
-        <tr>
-        <tr>
-            <td>
-                <button class="button" value="7" onclick="insert(7)">7</button>
-            </td>
-            <td>
-                <button class="button" value="8" onclick="insert(8)">8</button>
-            </td>
-            <td>
-                <button class="button" value="9" onclick="insert(9)">9</button>
-            </td>
-            <td>
-                <button class="button" value="9" onclick="insert('-')">-</button>
-            </td>
-        <tr>
-        <tr>
-            <td>
-                <button class="button" value="4" onclick="insert(4)">4</button>
-            </td>
-            <td>
-                <button class="button" value="5" onclick="insert(5)">5</button>
-            </td>
-            <td>
-                <button class="button" value="6" onclick="insert(6)">6</button>
-            </td>
-            <td>
-                <button class="button" value="+" onclick="insert('+')">+</button>
-            </td>
-        <tr>
-        <tr>
-            <td>
-                <button class="button" value="3" onclick="insert(3)">3</button>
-            </td>
-            <td>
-                <button class="button" value="2" onclick="insert(2)">2</button>
-            </td>
-            <td>
-                <button class="button" value="1" onclick="insert(1)">1</button>
-            </td>
-            <td rowspan="5">
-                <button class="button" value="=" onclick="equal()" style=height:105px;>=</button>
-            </td>
-        <tr>
-        <tr>
-            <td>
-                <button class="button" value="%" onclick="equal('%')">%</button>
-            </td>
-            <td>
-                <button class="button" value="0" onclick="insert(0)">0</button>
-            </td>
-            <td>
-                <button class="button" value="." onclick="insert('.')">.</button>
-            </td>
-        <tr>
-    </table>
 
-    <h1 class="greeting">"Calculator" by Damianos Pappas</h1>
+
+
+
 
 </div>
 <!--Here starts the menu html-->
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="/history">History</a>
+    <a href="/history">My Certificates</a>
     <a href="/userinfo">UserInfo</a>
-    <a href="/">Calculator</a>
+    <a href="/">Authenticate</a>
     <a href="/logout">Logout</a>
 
 </div>
@@ -131,7 +30,26 @@
 <div id="main">
     <button class="openbtn" onclick="openNav()">☰</button>
 </div>
+<div class="w3-content w3-container w3-padding-64" id="certificates">
+    <h3 class="greeting">Upload Your Certificate</h3>
+    <p class="greeting"><em>Choose between Blockchain Apis to check your certificate</em></p><br>
 
+    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+    <div class="w3-row-padding w3-center">
+        <div class="dropdown">
+            <button class="button">Apis</button>
+            <div class="dropdown-content">
+                <a >API 1</a>
+                <a >API 2</a>
+                <a >API 3</a>
+            </div>
+        </div>
+        <form action="/action_page.php">
+            <input class="button" style="margin-top:64px" type="file" id="myFile" name="filename">
+            <button class="button" style="margin-top:64px">Upload</button>
+        </form>
+    </div>
+</div>
 <script>
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";

@@ -3,24 +3,22 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "history" )
-public class History {
+@Table(name = "certificates" )
+public class Certificates {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
 
-    @Column(name = "calculation")
-    private String calculation;
+    @Column(name = "certificates")
+    private String certificates;
 
     @Column(name = "timestamp")
     private String timestamp;
 
     @JoinTable(
-            name = "history",
+            name = "certificates",
             joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"))
-
-    public Long getUser_id() {
+                    name = "user_id", referencedColumnName = "id"))    public Long getUser_id() {
         return user_id;
     }
 
@@ -28,12 +26,12 @@ public class History {
         this.user_id = user_id;
     }
 
-    public String getCalculation() {
-        return calculation;
+    public String getCertificates() {
+        return certificates;
     }
 
-    public void setCalculation(String calculation) {
-        this.calculation = calculation;
+    public void setCertificates(String certificates) {
+        this.certificates = certificates;
     }
 
     public String getTimestamp() {
@@ -43,4 +41,8 @@ public class History {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+
+
+
 }
