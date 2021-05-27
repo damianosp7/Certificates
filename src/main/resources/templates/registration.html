@@ -38,6 +38,10 @@
       <div th:if="${param.success}">
         <div class="alert alert-info">You've successfully registered!</div>
       </div>
+      <div th:if="${param.fail}">
+        <div style="background-color: #ffc2da" class="alert alert-info">Username already exists..</div>
+      </div>
+
 
       <h1 style="color: white">Registration</h1>
 
